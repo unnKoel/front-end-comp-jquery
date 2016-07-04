@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+
+    //判断ie 测试
+    document.writeln(+'\v1');
+    document.writeln(-[1,]);
+
+    document.writeln(!!(window.attachEvent && navigator.userAgent.indexOf('Opera') === -1));
+    document.writeln(!!(document.all && navigator.userAgent.indexOf('Opera') === -1));
+    document.writeln(!!window.ActiveXObject);
+
+    //判断ie 版本
+    document.writeln(!-[1,] && !window.XMLHttpRequest);  //ie6
+    document.writeln(!-[1,] && window.XMLHttpRequest && !document.documentMode);  //ie7
+    document.writeln(!-[1,] && document.documentMode == 8);  //ie8
+    document.writeln(!-[1,] && document.documentMode == 9);  //ie9
+</script>
+</body>
+</html>
