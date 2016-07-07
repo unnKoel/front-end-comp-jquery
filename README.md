@@ -50,4 +50,11 @@
 
   - ie 10
 
-    ie() && window.atob && 
+    ie() && window.atob
+
+  - ie 11
+
+    ie() && !window.all
+
+### 判断浏览器类型
+  - 从navigator.userAgent用户代理字符串中截取类型；
