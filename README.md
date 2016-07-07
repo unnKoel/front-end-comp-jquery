@@ -23,6 +23,7 @@
     兼容IE11: "ActiveXObject" in window
 
 ### 判断IE各个版本
+  #### documentMode版本
   - ie 6
 
     ie() && !window.XMLHttpRequest;
@@ -30,7 +31,7 @@
 
   - ie7
 
-    ie() && window.XMLHttpRequest && document.documentMode
+    ie() && window.XMLHttpRequest && !document.documentMode
     ie7 支持XMLHttpRequest,但ie8才开始支持documentMode
 
   - ie8,9
@@ -38,3 +39,15 @@
     ie() && document.documentMode==8;
 
     ie() && document.documentMode==9;
+
+  #### ie特性版本
+  - ie 8
+
+    ie() && document.documentMode
+  - ie 9
+
+    ie() && window.addEventListener && !window.atob;
+
+  - ie 10
+
+    ie() && window.atob && 
