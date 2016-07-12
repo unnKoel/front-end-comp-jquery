@@ -56,7 +56,8 @@
        * 获取浏览器类型
        * @returns {string|*}
        *  浏览器类型字符串，比如ie7，返回'ie7';
-       *  非ie浏览器，只返回浏览器类型，不返回版本号;
+       *  非ie浏览器，只返回浏览器类型，不返回版本号。
+       *    'firefox','chrome','opera','safari';
        */
       getBrowserType: function () {
         var type,
@@ -81,9 +82,33 @@
     }
   };
 
+  /**
+   * 变量相关
+   * @returns {{isNumber: Function, isNull: Function}}
+   * @constructor
+   */
+  var Variate = function () {
+    return {
+
+      /**
+       * 变量是否为数字类型(判断了NaN)
+       * @param value
+       * @returns {boolean}
+       */
+      isNumber: function (value) {
+        return typeof value === 'number' && isFinite(value);
+      },
+
+      isNull: function (value) {
+        return !value && typeof value === 'object';
+      }
+    }
+  };
+
   win.cmm = function () {
-    var cmm = {},
-      browser = Browser();
-    return cmm.clone(browser);
+    var cmm = {};
+    cmm.clone(Browser());
+    cmm.clone(Variate());
+    return cmm;
   }
 })(window);
