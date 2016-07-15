@@ -1,0 +1,21 @@
+{
+  "name": "front-end-comp-jquery",
+  "description": "基于jquery的网站常用组件实现，和第三发组件收集整理；",
+  "main": "gulpfile.js",
+  "authors": [
+    "unnKoel <unnkoel@gmail.com>"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/unnKoel/front-end-comp-jquery",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "lib",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "1.9.1"
+  }
+}

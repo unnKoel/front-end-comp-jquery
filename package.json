@@ -1,0 +1,32 @@
+{
+  "name": "front-end-comp-jquery",
+  "version": "0.0.1",
+  "description": "基于jquery的网站常用组件实现，和第三发组件收集整理；",
+  "main": "gulpfile.js",
+  "directories": {
+    "doc": "doc",
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/unnKoel/front-end-comp-jquery.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/unnKoel/front-end-comp-jquery/issues"
+  },
+  "homepage": "https://github.com/unnKoel/front-end-comp-jquery#readme",
+
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "bower": "^1.3.1",
+    "jasmine": "^2.4.1",
+    "karma": "1.x || ^0.13.0",
+    "karma-jasmine": "1.x || ^0.3.6",
+    "karma-chrome-launcher": "1.x || ^0.2.0"
+  },
+  "scripts": {
+    "test": "gulp test"
+  }
+}
