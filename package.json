@@ -17,14 +17,14 @@
     "url": "https://github.com/unnKoel/front-end-comp-jquery/issues"
   },
   "homepage": "https://github.com/unnKoel/front-end-comp-jquery#readme",
-
   "devDependencies": {
     "gulp": "^3.9.1",
     "bower": "^1.3.1",
     "jasmine": "^2.4.1",
     "karma": "1.x || ^0.13.0",
     "karma-jasmine": "1.x || ^0.3.6",
-    "karma-chrome-launcher": "1.x || ^0.2.0"
+    "karma-chrome-launcher": "1.x || ^0.2.0",
+    "karma-ie-launcher": "~1.0.0"
   },
   "scripts": {
     "test": "gulp test"
