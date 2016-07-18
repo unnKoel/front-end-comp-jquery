@@ -23,7 +23,7 @@
     兼容IE11: "ActiveXObject" in window
 
 ### 判断IE各个版本
-  #### documentMode版本
+#### documentMode版本
   - ie 6
 
     ie() && !window.XMLHttpRequest;
@@ -40,7 +40,7 @@
 
     ie() && document.documentMode==9;
 
-  #### ie特性版本
+#### ie特性版本
   - ie 8
 
     ie() && document.documentMode
@@ -58,3 +58,31 @@
 
 ### 判断浏览器类型
   - 从navigator.userAgent用户代理字符串中截取类型；
+
+----------------------------------------------------
+
+### js dom style
+#### style.cssText -字符串设置元素的多个样式；
+  
+  ```
+  document.getElementById('myP').style.cssText="background-color:pink;font-size:55px;border:2px dashed green;color:white;";
+  ```
+  
+#### .style.setExpression  -通过javascript表达式来设置css;
+  ```
+   div.style.setExpression ("width","myInput.value + 'px'");
+  ```
+  
+  http://help.dottoro.com/ljarcrag.php
+  
+  只有ie支持；从ie9就不再支持，支持到ie8;
+  
+#### document.documentElement  -返回文档根元素，即\<html\>
+  
+  https://developer.mozilla.org/en-US/docs/Web/API/Document/documentElement
+  
+  这个property是只读的；
+  
+#### scrollTop - 获取或设置一个元素被向上滚动的px
+  
+  http://help.dottoro.com/ljnvjiow.php
