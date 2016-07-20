@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .o {
+            width: 200px;
+            height: 200px;
+            background-color: #999999;
+            padding: 0 10px;
+            border: 2px solid;
+            color: red;
+            margin: 5px;
+            overflow-y: auto;
+        }
+    </style>
+</head>
+<body>
+<div class="o">
+    这里看一些关于高宽的属性
+    这里看一些关于高宽的属性
+    这里看一些关于高宽的属性
+    这里看一些关于高宽的属性
+    这里看一些关于高宽的属性
+    这里看一些关于高宽的属性
+    这里看一些关于高宽的属性
+    这里看一些关于高宽的属性
+    这里看一些关于高宽的属性
+    这里看一些关于高宽的属性
+    这里看一些关于高宽的属性
+    这里看一些关于高宽的属性
+</div>
+<div class="info">
+
+</div>
+</body>
+<script>
+    window.onload = function () {
+        var o = document.getElementsByClassName('o')[0];
+        var info = 'clientWidth:' + o.clientWidth + ', scrollWidth:' + o.scrollWidth + ', offsetWidth:' + o.offsetWidth;
+        document.getElementsByClassName('info')[0].innerHTML = info;
+    }
+</script>
+</html>

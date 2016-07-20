@@ -86,3 +86,37 @@
 #### scrollTop - 获取或设置一个元素被向上滚动的px
   
   http://help.dottoro.com/ljnvjiow.php
+  
+#### 关于滚动事件 onScroll
+  - onScroll
+  - scrollLeft, scrollTop
+  - scrollWidth, scrollHeight
+
+#### 元素的高宽
+  
+##### 获取一个已渲染的元素的宽度
+  - clientWidth property
+    
+  - scrollWidth property
+    
+  - offsetWidth property
+    
+  - getBoundingClientRect method
+    
+  
+##### 元素的宽度属性
+  - width       返回一个带宽度的字符串
+  - posWidth    返回一个已当前单位表示的浮点数
+  - pixelWidth  返回一个以px作为单位的宽度integer
+  
+  
+#### 元素的位置
+  - offsetLeft 
+  - offsetTop
+  - clientLeft
+  - clientTop
+  - scrollLeft
+  - scrollTop
+  - screenLeft
+  - screenX
+  - getBoundingClientRect method
