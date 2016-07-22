@@ -111,7 +111,7 @@
   
   
 #### 元素的位置
-  - offsetLeft 
+  - offsetLeft
   - offsetTop
   - clientLeft
   - clientTop

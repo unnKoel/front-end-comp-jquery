@@ -228,9 +228,7 @@
         }
       }
     };
-
     return base;
-
   };
 
   window.easyDialog = easyDialog();
