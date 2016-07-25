@@ -182,6 +182,7 @@
     cmm.clone(Browser());
     cmm.clone(Variate());
     cmm.clone(Dom());
+    cmm.clone(Network());
     return cmm;
   }
 })(window);
