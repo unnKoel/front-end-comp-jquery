@@ -95,6 +95,9 @@
   - scrollLeft, scrollTop
   - scrollWidth, scrollHeight
 
+  制造滚动条有两种方式:(1) 外层元素设置一个小于内层元素的高度，并且overflow:auto;
+                   (2) 外出元素设置postion:absolute,height:auto,overflow:auto;
+
 ### 元素的高宽
 
 #### 获取一个已渲染的元素的宽度
@@ -135,3 +138,4 @@ DocumentFragment是一个很类似document,但与文档上下文无关的对象�
   ```
   通过Range.createContextualFragment方法创建
 > 参考 http://help.dottoro.com/ljedicfj.php
+

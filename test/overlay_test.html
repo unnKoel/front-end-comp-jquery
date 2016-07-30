@@ -34,7 +34,11 @@
 <!--这是遮罩层-->
 <!--</div>-->
 <script>
-    
+    window.onload = function () {
+        document.body.onscroll = function (event) {
+            document.getElementById('overlay').style.top = document.body.scrollTop + 'px';
+        };
+    }
 </script>
 </body>
 </html>
