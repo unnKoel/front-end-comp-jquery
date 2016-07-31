@@ -30,6 +30,12 @@
 
             console.log(offset);
 
+            var zyjDiv = document.getElementById('zyj');
+            var zyjOffset = {x: 0, y: 0};
+            GetOffset(zyjDiv, zyjOffset);
+
+            console.log(zyjOffset);
+
             var scrolled = {x: 0, y: 0};
             GetScrolled(div.parentNode, scrolled);
 
@@ -44,10 +50,16 @@
 </head>
 <body>
 <div style="height:200px; width:300px; overflow:auto;">
-    <div id="myDiv" style="width:200px; border:1px solid red;">
-        You can get the top-left corner of this element
-        relative to the top left corner of the client area with the button below.<br/>
-        Use the scrollbars to test it for different positions.
+    <div id="myDiv" style="width:200px; border:10px solid red; position: relative;padding: 10px;">
+        <p>
+            You can get the top-left corner of this element
+            relative to the top left corner of the client area with the button below.<br/>
+            Use the scrollbars to test it for different positions.
+        </p>
+
+        <div style="margin-left:10px; border:10px solid red;" id="zyj">
+            zyj
+        </div>
     </div>
     <div style="width:1000px; height:1000px;"></div>
 </div>
