@@ -90,8 +90,8 @@
     
   http://help.dottoro.com/ljnvjiow.php
   
-### 关于滚动事件 onScroll
-  - onScroll
+### 关于滚动事件 onscroll
+  - onscroll 
   - scrollLeft, scrollTop
   - scrollWidth, scrollHeight
 
@@ -134,4 +134,6 @@ DocumentFragment是一个很类似document,但与文档上下文无关的对象�
   var newDocFrag = document.createDocumentFragment ();
   ```
   通过Range.createContextualFragment方法创建
+  
 > 参考 http://help.dottoro.com/ljedicfj.php
+
