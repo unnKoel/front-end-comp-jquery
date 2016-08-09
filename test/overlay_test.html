@@ -7,7 +7,7 @@
         #overlay {
             background-color: #999999;
             width: 100%;
-            height: 100%;
+            height: 300px;
             position: absolute;
             top: 0;
             left: 0;
@@ -34,9 +34,14 @@
 <!--这是遮罩层-->
 <!--</div>-->
 <script>
+    console.log(document.documentElement.clientHeight);
+    window.onresize = function () {
+        console.log('onresize:' + Math.max(document.documentElement.scrollTop, document.body.scrollTop));
+    };
     window.onload = function () {
         document.body.onscroll = function (event) {
-            document.getElementById('overlay').style.top = document.body.scrollTop + 'px';
+            console.log(document.documentElement.scrollTop);
+            document.getElementById('overlay').style.top = document.documentElement.scrollTop + 'px';
         };
     }
 </script>

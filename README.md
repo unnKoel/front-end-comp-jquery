@@ -76,6 +76,11 @@
   http://help.dottoro.com/ljarcrag.php
   
   只有ie支持；从ie9就不再支持，支持到ie8;
+  
+### style,currentStyle,cssStyleDeclaration
+
+  -style 获取通过style属性设置的css
+  -currentStyle和cssStyleDeclaration 获取计算后的css，前者ie支持，后者非ie支持
 
   
 ##js dom
@@ -97,11 +102,19 @@
 
   制造滚动条有两种方式:(1) 外层元素设置一个小于内层元素的高度，并且overflow:auto;
                    (2) 外出元素设置postion:absolute,height:auto,overflow:auto;
-
+                   
+  顶层窗口的滚动：ie 在document.documentElement(HTML)有效；
+               其他浏览器，在document.body有效；
+              
+### 获取属性
+  - getAttribute,setAttribute,removeAttribute 被所有浏览器支持
+  - getPropertyValue,setProperty,removeProperty ie9及以上
+  
 ### 元素的高宽
 
 #### 获取一个已渲染的元素的宽度
   - clientWidth property
+    document.documentElement.clientHeight 窗口的高度
     
   - scrollWidth property
     
@@ -125,6 +138,11 @@
   - screenLeft
   - screenX
   - getBoundingClientRect method
+  
+### ie6 select穿透
+ie6下 div 遮住iframe,iframe遮住select,select 遮住div;
+
+\<iframe style="position:absolute;left:0;top:0;width:100%;height:100%;z-index:-1;border:0 none;filter:alpha(opacity=0)"\>\</iframe\>
 
 ### DocumentFragment
 DocumentFragment是一个很类似document,但与文档上下文无关的对象；它也拥有document的方法，比如appendChild,insertBefore等；
