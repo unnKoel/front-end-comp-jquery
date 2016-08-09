@@ -139,10 +139,19 @@
   - screenX
   - getBoundingClientRect method
   
-### ie6 select穿透
+### ie6 bugs
+
+##### select穿透
+
 ie6下 div 遮住iframe,iframe遮住select,select 遮住div;
 
 \<iframe style="position:absolute;left:0;top:0;width:100%;height:100%;z-index:-1;border:0 none;filter:alpha(opacity=0)"\>\</iframe\>
+
+##### 模拟fixed
+
+(1)元素使用absolute定位，并随着页面滚动而滚动;
+
+(2)防止页面抖动；body设置背景about:blank, 背景attach设置fixed;
 
 ### DocumentFragment
 DocumentFragment是一个很类似document,但与文档上下文无关的对象；它也拥有document的方法，比如appendChild,insertBefore等；
