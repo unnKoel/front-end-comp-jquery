@@ -101,6 +101,21 @@
 
       isNull: function (value) {
         return !value && typeof value === 'object';
+      },
+
+      /**
+       * 参数合并
+       * @param paramDefault
+       * @param paramTarget
+       */
+      paramJoin: function (paramDefault, paramTarget) {
+        var temp, i;
+        for (i in paramTarget) {
+          if (paramTarget.hasOwnProperty(i)) {
+            temp[i] = paramTarget[i] !== undefined ? paramTarget[i] : paramDefault[i];
+          }
+        }
+        return temp;
       }
     }
   };
