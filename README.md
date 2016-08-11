@@ -113,12 +113,12 @@
 ### 元素的高宽
 
 #### 获取一个已渲染的元素的宽度
-  - clientWidth property
+  - clientWidth property 元素可视区域的宽度，只包括padding
     document.documentElement.clientHeight 窗口的高度
     
-  - scrollWidth property
+  - scrollWidth property 元素内容的宽度，包括padding,不包括滚动条,margin,border；
     
-  - offsetWidth property
+  - offsetWidth property 元素可视区域的宽度，包括padding,滚动条，border,不包括margin;
     
   - getBoundingClientRect method
     
@@ -129,15 +129,15 @@
   - pixelWidth  返回一个以px作为单位的宽度integer
 
 ### 元素的位置
-  - offsetLeft
-  - offsetTop
-  - clientLeft
-  - clientTop
-  - scrollLeft
-  - scrollTop
-  - screenLeft
-  - screenX
-  - getBoundingClientRect method
+  - offsetLeft/offsetTop/offsetWidth/offsetHeight
+  
+  - clientLeft/clientTop/clientWidth/clientHeight
+  
+  - scrollLeft/scrollTop/scrollWidth/scrollHeight
+  
+  - screenLeft/screenTop/screenX/screenY/outerWidth/outerHeight
+  
+  -left,posLeft,pixelLeft
   
 ### ie6 bugs
 

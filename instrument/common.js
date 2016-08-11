@@ -109,10 +109,10 @@
        * @param paramTarget
        */
       paramJoin: function (paramDefault, paramTarget) {
-        var temp, i;
-        for (i in paramTarget) {
-          if (paramTarget.hasOwnProperty(i)) {
-            temp[i] = paramTarget[i] !== undefined ? paramTarget[i] : paramDefault[i];
+        var temp = {}, i;
+        for (i in paramDefault) {
+          if (paramDefault.hasOwnProperty(i)) {
+            temp[i] = paramTarget && paramTarget[i] !== undefined ? paramTarget[i] : paramDefault[i];
           }
         }
         return temp;
@@ -155,6 +155,20 @@
         } else {
           parent.insertBefore(newElement, targetElement.nextSibling);
         }
+      },
+
+      /**
+       * 删除一个节点
+       * @param node
+       */
+      removeNode: function (node) {
+        if (cmm.isIE()) {
+          var div = document.createElement('div');
+          div.appendChild(node);
+          div.innerHTML = '';
+        } else {
+          node.parentNode.removeChild(node);
+        }
       }
     }
   };
@@ -192,12 +206,46 @@
     }
   };
 
-  win.cmm = function () {
-    var cmm = {};
-    cmm.clone(Browser());
-    cmm.clone(Variate());
-    cmm.clone(Dom());
-    cmm.clone(Network());
-    return cmm;
-  }
-})(window);
+  var ie6Compatibility = function () {
+    return {
+      /**
+       * 模拟fixed定位
+       */
+      ie6SimulateFixed: function (node, top) {
+        if (cmm.getIEVersion() !== 6)return;
+        node.style.position = 'absolute';
+        node.style.setExpression('top', 'document.documentElement.scrollTop+top+"px"');
+        var body = document.body;
+        if (body.currentStyle.backgroundAttachment !== 'fixed') {
+          body.style.background = 'url(about:blank)';
+          body.style.backgroundAttachment = 'fixed';
+        }
+      },
+
+      setIe6FixedBody: function () {
+        if (cmm.getIEVersion() !== 6)return;
+        var body = document.body;
+        if (body.currentStyle.backgroundAttachment !== 'fixed') {
+          body.style.background = 'url(about:blank)';
+          body.style.backgroundAttachment = 'fixed';
+        }
+      },
+
+      // 防止IE6的select穿透
+      selectPierce: function (node) {
+        if (cmm.getIEVersion() !== 6)return;
+        node.innerHTML = '<iframe style="position:absolute;left:0;top:0;width:100%;height:100%;z-index:-1;border:0 none;filter:alpha(opacity=0)"></iframe>';
+      }
+    }
+  };
+
+  win.cmm = (function () {
+    var util = {};
+    util.clone(Browser());
+    util.clone(Variate());
+    util.clone(Dom());
+    util.clone(Network());
+    return util;
+  })();
+})
+(window);
