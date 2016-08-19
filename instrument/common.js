@@ -206,7 +206,7 @@
     }
   };
 
-  var ie6Compatibility = function () {
+  var Compatibility = function () {
     return {
       /**
        * 模拟fixed定位
@@ -222,7 +222,7 @@
         }
       },
 
-      setIe6FixedBody: function () {
+      ie6SetFixedBody: function () {
         if (cmm.getIEVersion() !== 6)return;
         var body = document.body;
         if (body.currentStyle.backgroundAttachment !== 'fixed') {
@@ -232,9 +232,32 @@
       },
 
       // 防止IE6的select穿透
-      selectPierce: function (node) {
+      ie6SelectPierce: function (node) {
         if (cmm.getIEVersion() !== 6)return;
         node.innerHTML = '<iframe style="position:absolute;left:0;top:0;width:100%;height:100%;z-index:-1;border:0 none;filter:alpha(opacity=0)"></iframe>';
+      },
+
+      /**
+       * ie PlaceHolder 兼容
+       * ie 10以上才支持 placeHolder
+       */
+      iePlaceHolder: function () {
+        var isIE = !-[, 1];
+        if (isIE && document.documentMode <= 9) {
+          var $input = $('input');
+          $input.filter(function () {
+            return $(this).attr('placeholder') !== undefined;
+          }).each(function () {
+            $(this).val($(this).attr('placeholder')).css('color', '#666')
+              .on('focus', function () {
+                $(this).val() === $(this).attr('placeholder') &&
+                $(this).val('').css('color', '#333');
+              })
+              .on('blur', function () {
+                !$(this).val() && $(this).val($(this).attr('placeholder')).css('color', '#666');
+              })
+          })
+        }
       }
     }
   };
@@ -245,6 +268,7 @@
     util.clone(Variate());
     util.clone(Dom());
     util.clone(Network());
+    util.clone(Compatibility());
     return util;
   })();
 })
