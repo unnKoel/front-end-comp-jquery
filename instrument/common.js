@@ -262,6 +262,39 @@
     }
   };
 
+  /**
+   * 模式
+   * @returns {{Topic: Function}}
+   */
+  var Pattern = function () {
+    var topics = {};
+    return {
+      /**
+       * 订阅/发布者模式
+       * @param id
+       * @returns {*}
+       * @constructor
+       */
+      Topic: function (id) {
+        var callbacks, method,
+          topic = id && topics[id];
+
+        if (!topic) {
+          callbacks = jQuery.Callbacks();
+          topic = {
+            publish: callbacks.fire,
+            subscribe: callbacks.add,
+            unsubscribe: callbacks.remove
+          };
+          if (id) {
+            topics[id] = topic;
+          }
+        }
+        return topic;
+      }
+    }
+  };
+
   win.cmm = (function () {
     var util = {};
     util.clone(Browser());
@@ -269,6 +302,7 @@
     util.clone(Dom());
     util.clone(Network());
     util.clone(Compatibility());
+    util.clone(Pattern());
     return util;
   })();
 })
