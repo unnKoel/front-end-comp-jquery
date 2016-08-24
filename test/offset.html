@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>offset demo</title>
+    <style>
+        p#second {
+            margin-left: 10px;
+            border: 1px solid #ccc;
+            width: 1000px;
+            height: 500px;
+        }
+
+        div#wrap {
+            margin-top: 10px;
+            margin-left: 10px;
+            padding-top: 10px;
+            padding-left: 10px;
+            position: relative;
+            border: 5px solid #ccc;
+            width: 200px;
+            height: 70px;
+            overflow: auto;
+        }
+    </style>
+    <script src="../vendor/jquery-3.1.0.js"></script>
+</head>
+<body>
+<p>Hello</p>
+
+<div id="wrap">
+    <p id="second">2nd Paragraph</p>
+</div>
+
+<script>
+
+    function getOffset(object, offset) {
+        if (!object) return;
+        offset.x += object.offsetLeft + object.clientLeft;
+        offset.y += object.offsetTop + object.clientTop;
+        getOffset(object.offsetParent, offset);
+    }
+
+    var p = $('p:last');
+    var offset = p.offset();
+    p.html("jquery.offset()  left:" + offset.left + ', top:' + offset.top);
+
+    var $second = document.getElementById('second');
+
+    var textNode = document.createTextNode("offsetLeft   left:" + $second.offsetLeft + ', top:' + $second.offsetTop);
+    var divNode = document.createElement('div');
+    divNode.appendChild(textNode);
+    document.body.appendChild(divNode);
+
+    var antherOffset = {x: 0, y: 0};
+    getOffset($second, antherOffset);
+    $('body').append($('<div>').text("getOffset  left:" + antherOffset.x + ', top:' + antherOffset.y));
+
+    $('body').append($('<div>').text('---------------------------------------------------------------'));
+
+    $('body').append($('<div>').text("offsetWidth:" + $('#wrap')[0].offsetWidth + 'offsetHeight:' + $('#wrap')[0].offsetHeight));
+
+    $('body').append($('<div>').text("clientLeft:" + $('#wrap')[0].clientLeft + 'clientTop:' + $('#wrap')[0].clientTop));
+
+    $('body').append($('<div>').text("clientWidth:" + $('#wrap')[0].clientWidth + 'clientHeight:' + $('#wrap')[0].clientHeight));
+
+    $('body').append($('<div>').text("scrollWidth:" + $('#wrap')[0].scrollWidth + 'scrollHeight:' + $('#wrap')[0].scrollHeight));
+</script>
+</body>
+</html>

@@ -130,14 +130,48 @@
 
 ### 元素的位置
   - offsetLeft/offsetTop/offsetWidth/offsetHeight
-  
+
+    offsetLeft/offsetTop
+    ```
+    是元素相对offsetParent元素的位置，offsetParent是指设置了position:relative,
+    absolute,fixed的父元素;
+
+    元素的外边框相对offsetParent的内边框的距离，所以除了border，其他margin,padding都包括
+
+    对应的jquery方法是offset(),获取元素相对于document的位置
+    ```
+    offsetWidth/offsetHeight
+    ```
+    offsetWidht/offsetHeight包括border,padding,scrollBar,但不包括margin
+    ```
+
   - clientLeft/clientTop/clientWidth/clientHeight
-  
+
+    clientLeft/clientTop
+    ```
+    获取元素的borderLeftWidth,和borderTopWidth
+    ```
+    clientWidth/clientHeight
+    ```
+    获取元素的宽和高，只包括元素的padding
+    ```
+
   - scrollLeft/scrollTop/scrollWidth/scrollHeight
-  
+
+    scrollLeft/scrollTop
+    ```
+    ...
+    ```
+
+    scrollWidth/scrollHeight
+    ```
+    内容的高度和宽度，包括padding，不包括margin,scroller,border
+    ```
+
   - screenLeft/screenTop/screenX/screenY/outerWidth/outerHeight
+
   
-  -left,posLeft,pixelLeft
+  - left,posLeft,pixelLeft
   
 ### ie6 bugs
 

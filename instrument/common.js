@@ -173,6 +173,17 @@
     }
   };
 
+  var css = function () {
+    return {
+      getOffset: function (object, offset) {
+        if (!object) return;
+        offset.x += object.offsetLeft;
+        offset.y += object.offsetTop;
+        this.getOffset(object.offsetParent, offset);
+      }
+    }
+  };
+
   /**
    * 网络相关
    * @returns {{getHttpObject: Function}}
@@ -267,7 +278,6 @@
    * @returns {{Topic: Function}}
    */
   var Pattern = function () {
-    var topics = {};
     return {
       /**
        * 订阅/发布者模式
@@ -275,7 +285,7 @@
        * @returns {*}
        * @constructor
        */
-      Topic: function (id) {
+      Topic: function (id, topics) {
         var callbacks, method,
           topic = id && topics[id];
 
