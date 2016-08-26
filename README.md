@@ -82,6 +82,74 @@
   -style 获取通过style属性设置的css
   -currentStyle和cssStyleDeclaration 获取计算后的css，前者ie支持，后者非ie支持
 
+### 元素的位置
+  - offsetLeft/offsetTop/offsetWidth/offsetHeight
+
+    offsetLeft/offsetTop
+    
+    
+    ```
+    是元素相对offsetParent元素的位置，offsetParent是指设置了position:relative,
+    absolute,fixed的父元素；
+    元素的外边框相对offsetParent的内边框的距离，所以除了border，其他margin,padding都包括
+    对应的jquery方法是offset(),获取元素相对于document的位置
+    ```
+    
+    offsetWidth/offsetHeight
+    
+    
+    ```
+    offsetWidht/offsetHeight包括border,padding,scrollBar,但不包括margin
+    ```
+
+  - clientLeft/clientTop/clientWidth/clientHeight
+
+    clientLeft/clientTop
+    
+    
+    ```
+    获取元素的borderLeftWidth,和borderTopWidth
+    ```
+    clientWidth/clientHeight
+    
+    
+    ```
+    获取元素的宽和高，只包括元素的padding
+    ```
+
+  - scrollLeft/scrollTop/scrollWidth/scrollHeight
+
+    scrollLeft/scrollTop
+    
+    
+    ```
+    ...
+    ```
+
+    scrollWidth/scrollHeight
+    
+    
+    ```
+    内容的高度和宽度，包括padding，不包括margin,scroller,border
+    ```
+
+  - screenLeft/screenTop/screenX/screenY/outerWidth/outerHeight
+    screenLeft/screenTop/screenX/screenY
+    
+    ```
+    screenLeft/screenTop/screenX/screenY在 chrome和safari中是一样的，都是获取窗口距离屏幕的位置；
+    在ie中screenLeft/screenTop是可视区域距离屏幕的位置， ie9以上后支持screenX/screenY，获取窗口距离屏幕的位置；
+    火狐不支持screenLeft/screenTop，支持screenX/screenY
+    ```
+    
+    outerWidth/outerHeight
+    
+    ```
+    获取窗口的高度和宽度，ie9才支持
+    ```
+    
+  - left,posLeft,pixelLeft
+  
   
 ##js dom
   
@@ -127,51 +195,7 @@
   - width       返回一个带宽度的字符串
   - posWidth    返回一个已当前单位表示的浮点数
   - pixelWidth  返回一个以px作为单位的宽度integer
-
-### 元素的位置
-  - offsetLeft/offsetTop/offsetWidth/offsetHeight
-
-    offsetLeft/offsetTop
-    ```
-    是元素相对offsetParent元素的位置，offsetParent是指设置了position:relative,
-    absolute,fixed的父元素;
-
-    元素的外边框相对offsetParent的内边框的距离，所以除了border，其他margin,padding都包括
-
-    对应的jquery方法是offset(),获取元素相对于document的位置
-    ```
-    offsetWidth/offsetHeight
-    ```
-    offsetWidht/offsetHeight包括border,padding,scrollBar,但不包括margin
-    ```
-
-  - clientLeft/clientTop/clientWidth/clientHeight
-
-    clientLeft/clientTop
-    ```
-    获取元素的borderLeftWidth,和borderTopWidth
-    ```
-    clientWidth/clientHeight
-    ```
-    获取元素的宽和高，只包括元素的padding
-    ```
-
-  - scrollLeft/scrollTop/scrollWidth/scrollHeight
-
-    scrollLeft/scrollTop
-    ```
-    ...
-    ```
-
-    scrollWidth/scrollHeight
-    ```
-    内容的高度和宽度，包括padding，不包括margin,scroller,border
-    ```
-
-  - screenLeft/screenTop/screenX/screenY/outerWidth/outerHeight
-
   
-  - left,posLeft,pixelLeft
   
 ### ie6 bugs
 

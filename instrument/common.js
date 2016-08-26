@@ -180,6 +180,22 @@
         offset.x += object.offsetLeft;
         offset.y += object.offsetTop;
         this.getOffset(object.offsetParent, offset);
+      },
+
+      /**
+       * 获取窗口/可视区域距离屏幕的位置
+       * @returns {{}}
+       */
+      getScreenXY: function () {
+        var position = {};
+        if ('screenLeft' in window) {
+          position = {x: window.screenLeft, y: window.screenTop};
+        }
+        if ('screenX' in window) {
+          position = {x: window.screenX, y: window.screenY};
+        }
+
+        return position;
       }
     }
   };
