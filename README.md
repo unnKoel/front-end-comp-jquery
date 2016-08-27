@@ -150,7 +150,21 @@
     
   - left,posLeft,pixelLeft
   
-  
+### 获取一个已渲染的元素的宽度
+  - clientWidth property 元素可视区域的宽度，只包括padding
+    document.documentElement.clientHeight 窗口的高度
+
+  - scrollWidth property 元素内容的宽度，包括padding,不包括滚动条,margin,border；
+
+  - offsetWidth property 元素可视区域的宽度，包括padding,滚动条，border,不包括margin;
+
+  - getBoundingClientRect method
+
+### 元素的宽度属性
+  - width       返回一个带宽度的字符串
+  - posWidth    返回一个已当前单位表示的浮点数
+  - pixelWidth  返回一个以px作为单位的宽度integer
+
 ##js dom
   
 ### document.documentElement  -返回文档根元素，即\<html\>
@@ -158,10 +172,6 @@
     https://developer.mozilla.org/en-US/docs/Web/API/Document/documentElement
     
     这个property是只读的；
-    
-### scrollTop - 获取或设置一个元素被向上滚动的px
-    
-  http://help.dottoro.com/ljnvjiow.php
   
 ### 关于滚动事件 onscroll
   - onscroll 
@@ -180,21 +190,18 @@
   
 ### 元素的高宽
 
-#### 获取一个已渲染的元素的宽度
-  - clientWidth property 元素可视区域的宽度，只包括padding
-    document.documentElement.clientHeight 窗口的高度
-    
-  - scrollWidth property 元素内容的宽度，包括padding,不包括滚动条,margin,border；
-    
-  - offsetWidth property 元素可视区域的宽度，包括padding,滚动条，border,不包括margin;
-    
-  - getBoundingClientRect method
-    
-  
-#### 元素的宽度属性
-  - width       返回一个带宽度的字符串
-  - posWidth    返回一个已当前单位表示的浮点数
-  - pixelWidth  返回一个以px作为单位的宽度integer
+#### DocumentFragment
+DocumentFragment是一个很类似document,但与文档上下文无关的对象；它也拥有document的方法，比如appendChild,insertBefore等；
+你创建的DocumentFragment对象可以被插入到文档对象树中(通过appendChild或insertBefore)；
+
+- DocumentFragment的创建
+
+  通过document.createDocumentFragment方法来创建documentfragment对象
+  ```
+  var newDocFrag = document.createDocumentFragment ();
+  ```
+  通过Range.createContextualFragment方法创建
+> 参考 http://help.dottoro.com/ljedicfj.php
   
   
 ### ie6 bugs
@@ -210,16 +217,3 @@ ie6下 div 遮住iframe,iframe遮住select,select 遮住div;
 (1)元素使用absolute定位，并随着页面滚动而滚动;
 
 (2)防止页面抖动；body设置背景about:blank, 背景attach设置fixed;
-
-### DocumentFragment
-DocumentFragment是一个很类似document,但与文档上下文无关的对象；它也拥有document的方法，比如appendChild,insertBefore等；
-你创建的DocumentFragment对象可以被插入到文档对象树中(通过appendChild或insertBefore)；
-
-- DocumentFragment的创建
-
-  通过document.createDocumentFragment方法来创建documentfragment对象
-  ```
-  var newDocFrag = document.createDocumentFragment ();
-  ```
-  通过Range.createContextualFragment方法创建
-> 参考 http://help.dottoro.com/ljedicfj.php
